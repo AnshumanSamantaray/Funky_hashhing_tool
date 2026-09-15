@@ -1,40 +1,43 @@
-# 🎉 Funky File Hashing Tool 🎉
+# Funky File Hashing Tool 🔍🎨
 
-Welcome to the **Funky File Hashing Tool**! This is a colorful, user-friendly desktop application built to generate, compare, and export file hashes securely and in style. 
+A lightweight, colorful desktop application built to generate, compare, and export file hashes. 
+
+## 💡 Why I Built This
+As I dive deeper into computer science and system security, I wanted to get hands-on with cryptographic hashing. Verifying file integrity is a core concept in everything from basic software downloads to malware analysis. I built this tool to take a backend concept (generating SHA-256/SHA-512 hashes via Python's `hashlib`) and wrap it in a custom, user-friendly graphical interface. 
+
+It was a great exercise in bridging core Python logic with GUI development and OS-level file handling.
 
 ## ✨ Features
-* **Multiple Algorithms:** Supports standard, secure cryptographic hashing algorithms, specifically SHA-256 and SHA-512.
-* **Hash Generation:** Browse and select any file from your system to instantly generate its hash.
-* **Hash Comparison:** Easily verify file integrity by pasting a known hash into the comparison tool to check for a match.
-* **Export & Copy:** Quickly copy the generated hash to your clipboard or export it directly to a `.txt` file.
-* **Funky UI:** Features a custom UI built with `customtkinter`, utilizing fun canvas shapes, "Comic Sans MS" fonts, and emoji-themed buttons.
+* **Core Cryptography:** Generates secure SHA-256 and SHA-512 hashes for any file on your system.
+* **Integrity Checking:** Includes a quick-compare feature to match a generated hash against a known hash (useful for verifying downloads).
+* **Export & Clipboard Integration:** One-click copy to clipboard or export the results directly to a `.txt` file.
+* **Custom UI:** Built entirely with `customtkinter` to step away from standard, boring system windows. It features dynamic canvas shapes and a personalized color palette.
+
+## 💻 Tech Stack & Concepts Learned
+* **Python 3**
+* **CustomTkinter & Tkinter:** Learned how to build and structure event-driven desktop applications.
+* **Hashlib:** Implemented chunked file reading to efficiently hash large files without overloading system memory.
+* **OS & File System Interaction:** Wrote recursive directory search algorithms to locate specific assets (like the background image) and used `filedialog` for user inputs.
+* **Pillow (PIL):** Handled image processing and dynamic resizing for the application window.
 
 ## 🚀 Getting Started
 
-### Running the Executable
-You don't need to install Python or any dependencies to use this tool!
-1. Download the `GUI.exe` file directly from this repository.
-2. Double-click `GUI.exe` to launch the application.
+### The Quick Way (Executable)
+You don't need Python installed to test this out!
+1. Download `GUI.exe` from this repository.
+2. Double-click to run.
 
-### 🎨 Important Note: The Background Image
-To get the full visual experience, the application is programmed to recursively search your entire `C:\` drive for the background image named `funky_background.png`. 
-* For the custom background to load, make sure you download `funky_background.png` from this repository and save it *anywhere* on your `C:\` drive. 
-* If the image is not found, the app won't crash; it will gracefully fall back to a clean, solid-colored background (`#FFF8DC`) and render its own funky shapes on the canvas.
+### 🎨 A Fun File-Handling Quirk: The Background
+To practice OS-level file searching, I programmed the app to dynamically hunt for its own background. 
+* If you want the full visual experience, download `funky_background.png` from this repo and save it *anywhere* on your `C:\` drive. The script will recursively search your drive, find it, and load it.
+* **Fallback:** If it doesn't find the image, the app handles the exception gracefully, falling back to a clean `#FFF8DC` background and rendering its own geometric shapes on the canvas.
 
-## 🛠️ Running from Source
-If you prefer to run the raw Python script (`GUI.py`) instead of the executable, ensure you have the required dependencies installed:
+### Running from Source
+If you want to check out the code and run it directly:
 
 ```bash
+# Install the required libraries
 pip install customtkinter Pillow
-```
 
-Then, run the script from your terminal:
-```bash
+# Run the application
 python GUI.py
-```
-
-## 💻 Technologies Used
-* **Python 3**
-* **CustomTkinter & Tkinter:** For the modern, custom-styled graphical user interface.
-* **Pillow (PIL):** For loading and resizing the custom background image.
-* **Hashlib:** Native Python library used to generate the secure SHA-256 and SHA-512 hashes.
